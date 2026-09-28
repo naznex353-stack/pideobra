@@ -611,7 +611,7 @@ function layout(){
   const old=g.querySelectorAll("svg.arrows"); if(old.length>1) old[1].remove();
 }
 let lastW=0; new ResizeObserver(()=>{const w=$("grid").clientWidth; if(w!==lastW){lastW=w; layout();}}).observe($("grid"));
-$("grid").addEventListener("click", e=>{const b=e.target.closest(".svc"); if(!b) return; toggle(+b.dataset.i);});
+$("grid").addEventListener("click", e=>{const b=e.target.closest(".svc"); if(!b) return; const i=+b.dataset.i; toggle(i); if(chosen.has(i)) go(2);});
 function toggle(i){ chosen.has(i)?chosen.delete(i):chosen.add(i); document.querySelectorAll(".svc").forEach(b=>b.setAttribute("aria-pressed",chosen.has(+b.dataset.i))); renderSel(); }
 function renderSel(){
   const arr=[...chosen];
