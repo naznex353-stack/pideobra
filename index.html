@@ -1,1 +1,870 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="NEXTNIVEL LCH: pide hasta 3 presupuestos gratis de reformas en Sevilla a empresas y autonomos verificados. Banos, cocinas, pintura, suelos, fontaneria, electricidad y mas.">
+<title>NEXTNIVEL LCH Reformas</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#f5efe6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+:root{
+  --navy:#13233f; --navy-2:#1d3358; --gold:#c9a24b; --gold-soft:#f3e6c4;
+  --bg:#f2f4f8; --surface:#ffffff; --ink:#15213a; --muted:#5b6679; --line:#dde2eb;
+  --tile:#eef1f7; --ok:#1f8a5b; --err:#c0392b; --on-navy:#ffffff;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0c1424; --surface:#141f35; --ink:#e8ecf4; --muted:#9aa6bb; --line:#26334d;
+    --tile:#1a2843; --gold-soft:#3a3120; --navy:#0f1c33; --navy-2:#1a2b4b; --ok:#3cc488; --err:#ff7b6b;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0c1424; --surface:#141f35; --ink:#e8ecf4; --muted:#9aa6bb; --line:#26334d;
+  --tile:#1a2843; --gold-soft:#3a3120; --navy:#0f1c33; --navy-2:#1a2b4b; --ok:#3cc488; --err:#ff7b6b;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+/* header */
+.top{background:var(--navy);color:var(--on-navy)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.01em}
+.brand b{color:var(--gold)}
+.badge{width:34px;height:34px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center}
+.top small{color:#c7d0e0;font-size:14px}
+.hero{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--on-navy);padding-block:28px 44px}
+.hero h1{font-size:clamp(26px,4.2vw,40px);font-weight:800;line-height:1.1;max-width:22ch}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#d3dbea;max-width:58ch;margin:12px 0 0;font-size:17px}
+.trio{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;max-width:1120px;margin:0 auto;align-items:end}
+.char{position:relative;display:flex;flex-direction:column;align-items:center;gap:16px}
+.pic{margin:0;width:100%;border-radius:24px;overflow:hidden;background:#fff;border:3px solid var(--gold);box-shadow:0 18px 40px rgba(0,0,0,.35);aspect-ratio:4/5}
+.pic img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.c1 .pic{transform:rotate(-2deg)} .c3 .pic{transform:rotate(2deg)} .c4 .pic img{object-position:50% 25%}
+.tag{position:absolute;bottom:-12px;background:var(--gold);color:#1a1405;font:700 12px var(--body);letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.bub{position:relative;background:#fff;color:var(--navy);border-radius:18px;padding:12px 14px;font:800 clamp(14px,1.6vw,18px)/1.25 var(--display);text-align:center;text-wrap:balance;box-shadow:0 10px 24px rgba(0,0,0,.3);width:100%;animation:pop .5s ease-out both}
+.c2 .bub{animation-delay:.5s}.c4 .bub{animation-delay:1s}.c3 .bub{animation-delay:1.5s}
+.bub .who{display:block;font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;color:#b0852f;margin-bottom:4px}
+.say::after{content:"";position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);border:10px solid transparent;border-top:15px solid #fff;border-bottom:0}
+.think{font-style:italic;font-weight:700;font-family:var(--body)}
+.think::before,.think::after{content:"";position:absolute;background:#fff;border-radius:50%;left:50%}
+.think::before{width:13px;height:13px;bottom:-11px;margin-left:-6px}
+.think::after{width:7px;height:7px;bottom:-21px;margin-left:-3px}
+.c2 .bub{outline:3px solid var(--gold);outline-offset:-3px}
+@keyframes pop{from{transform:translateY(8px) scale(.94);opacity:.3}to{transform:none;opacity:1}}
+@media (max-width:640px){
+  .trio{grid-template-columns:1fr;gap:14px}
+  .char{flex-direction:row;align-items:center;gap:14px}
+  .char .pic{width:96px;flex:none;border-radius:50%;aspect-ratio:1;transform:none!important}
+  .c2,.c3{flex-direction:row-reverse}
+  .tag{display:none}
+  .c2 .tag{left:auto;right:10px}
+  .bub{text-align:left;font-size:15.5px}
+  .say::after,.think::before,.think::after{display:none}
+}
+@media (prefers-reduced-motion: reduce){.bub{animation:none}}
+.hero-text{text-align:center;margin-top:30px}
+@media (max-width:900px) and (min-width:641px){.trio{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:34px}}
+.hero-text h1{margin:0 auto}
+.hero-text p{margin-inline:auto}
+.hero-text .facts{justify-content:center}
+.quotes{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.q{display:flex;flex-direction:column;gap:2px;min-width:150px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);text-align:left}
+.q b{font-family:var(--display);font-size:15px;color:#fff}
+.q span{font-size:13.5px;color:#d3dbea}
+.q span::before{content:"✓ ";color:var(--gold);font-weight:700}
+.q.you{background:var(--gold);border-color:var(--gold)}
+.q.you b,.q.you span{color:#1a1405}.q.you span::before{content:""}
+@media (max-width:640px){.q{min-width:0;flex:1 1 42%}}
+.hero-cta{margin-top:22px}
+@media (max-width:640px){.hero-text{margin-top:22px}}
+.facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px;font-size:14px;color:#d3dbea}
+.facts span::before{content:"✓ ";color:var(--gold);font-weight:700}
+/* steps */
+.steps{display:flex;gap:8px;margin:-22px 0 20px;flex-wrap:wrap}
+.step{flex:1 1 160px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;font-weight:600;color:var(--muted);font-size:15px}
+.step i{font-style:normal;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--tile);font-size:13px;flex:none}
+.step.on{color:var(--ink);border-color:var(--gold)}
+.step.on i{background:var(--gold);color:#1a1405}
+.step.done i{background:var(--ok);color:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start;padding-bottom:48px}
+@media (max-width:880px){.layout{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.panel h2{font-size:22px;margin-bottom:4px}
+.lead{color:var(--muted);margin:0 0 16px}
+/* search + filters */
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.tools input{flex:1 1 220px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 12px;font:600 14px var(--body);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+/* service grid: collage de rombos */
+.grid{position:relative;margin:6px 0 0;background:none;overflow:visible}
+.grid svg.arrows{display:none}
+.svc{position:absolute;padding:0;border:0;background:none;cursor:pointer;font:inherit;color:#fff}
+.svc .dia{position:absolute;inset:0;transform:rotate(45deg) scale(.6);border-radius:14%;overflow:hidden;
+  border:4px solid rgba(255,255,255,.95);box-shadow:0 10px 24px rgba(15,25,45,.28);transition:transform .25s, border-color .2s}
+.svc:hover .dia{transform:rotate(45deg) scale(.63)}
+.svc .scene{position:absolute;inset:-21%;transform:rotate(-45deg)}
+.svc .scene svg.ico{position:absolute;left:50%;top:37%;width:30%;transform:translate(-50%,-50%);stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));opacity:.95}
+.svc .name{position:absolute;left:50%;top:55%;transform:translateX(-50%);width:66%;text-align:center;font:700 13.5px/1.2 var(--body);text-shadow:0 1px 3px rgba(0,0,0,.6);text-wrap:balance}
+.svc .pill{position:absolute;left:50%;top:14%;transform:translateX(-50%);background:#e8704f;color:#fff;font:700 10.5px var(--body);letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.svc[aria-pressed="true"] .dia{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,162,75,.45),0 10px 24px rgba(15,25,45,.3)}
+.svc .tick{position:absolute;left:50%;top:14%;transform:translateX(-50%);width:40px;height:40px;border-radius:50%;background:var(--gold);color:#1a1405;display:none;place-items:center;font-weight:800;font-size:22px;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.svc[aria-pressed="true"] .tick{display:grid}
+.svc:focus-visible{outline:none}
+.svc:focus-visible .dia{border-color:var(--gold)}
+/* escenas */
+.sc-azul{background:linear-gradient(90deg,rgba(255,255,255,.35) 2px,transparent 2px) 0 0/30px 30px,linear-gradient(rgba(255,255,255,.35) 2px,transparent 2px) 0 0/30px 30px,linear-gradient(160deg,#8fd3d6,#2a7d8e)}
+.sc-cocina{background:linear-gradient(90deg,rgba(255,255,255,.4) 2px,transparent 2px) 0 0/40px 20px,linear-gradient(rgba(255,255,255,.4) 2px,transparent 2px) 0 0/40px 20px,linear-gradient(170deg,#f2b97a,#b5633a)}
+.sc-madera{background:repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 2px,transparent 2px 46px),repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 3px,transparent 3px 9px),linear-gradient(160deg,#c68a52,#7a4520)}
+.sc-ladrillo{background:linear-gradient(rgba(255,255,255,.35) 2px,transparent 2px) 0 0/48px 24px,linear-gradient(90deg,rgba(255,255,255,.35) 2px,transparent 2px) 0 0/48px 48px,linear-gradient(90deg,rgba(255,255,255,.35) 2px,transparent 2px) 24px 24px/48px 48px,linear-gradient(160deg,#d9795a,#8d3a28)}
+.sc-cielo{background:radial-gradient(circle at 75% 22%,rgba(255,236,170,.95) 0 7%,transparent 8%),linear-gradient(180deg,#5fb2e8 0%,#a9dcf5 55%,#e9c98f 56%,#c79a5e 100%)}
+.sc-pintura{background:linear-gradient(115deg,#f06c5b 0 25%,#f4b544 25% 50%,#4fb3a4 50% 75%,#3d6fb6 75%)}
+.sc-yeso{background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.5),transparent 50%),linear-gradient(160deg,#c9c3b8,#7e7668)}
+.sc-noche{background:radial-gradient(circle at 50% 40%,rgba(255,200,60,.55),transparent 45%),linear-gradient(160deg,#243a63,#0e1a33)}
+.sc-frio{background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.45),transparent 50%),linear-gradient(160deg,#7cc4f0,#2d6fb0)}
+.sc-verde{background:radial-gradient(circle at 70% 25%,rgba(255,240,170,.6),transparent 40%),linear-gradient(160deg,#8bc97a,#2f7a4b)}
+.sc-agua{background:repeating-linear-gradient(135deg,rgba(255,255,255,.12) 0 10px,transparent 10px 20px),linear-gradient(160deg,#5aa0d8,#1f4f8a)}
+.sc-calido{background:radial-gradient(circle at 40% 25%,rgba(255,255,255,.35),transparent 50%),linear-gradient(160deg,#e9a86a,#9a5b8a)}
+.empty{color:var(--muted);padding:20px 0}
+/* form */
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.fields{grid-template-columns:1fr}}
+.full{grid-column:1/-1}
+label{display:block;font-weight:600;font-size:14.5px;margin-bottom:5px}
+label em{font-style:normal;color:var(--muted);font-weight:400}
+input,textarea,select{width:100%;font:16px var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px}
+textarea{min-height:96px;resize:vertical}
+.err{color:var(--err);font-size:13.5px;margin-top:4px;min-height:0}
+.bad{border-color:var(--err)}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:18px;text-align:center;color:var(--muted);cursor:pointer;background:var(--bg)}
+.drop:hover,.drop.over{border-color:var(--gold)}
+.drop strong{color:var(--ink)}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.thumb{position:relative;width:84px;height:84px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb button{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;border:0;background:rgba(0,0,0,.65);color:#fff;cursor:pointer;font-size:13px;line-height:1}
+.urg{display:flex;gap:8px;flex-wrap:wrap}
+.urg label{margin:0;display:flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font-weight:600;cursor:pointer}
+.urg input{width:auto;accent-color:var(--gold)}
+.urg label:has(input:checked){border-color:var(--gold);background:var(--gold-soft)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)}
+.consent input{width:auto;margin-top:4px;accent-color:var(--gold)}
+.row{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;margin-top:20px}
+.btn{border:0;border-radius:10px;padding:13px 20px;font:700 16px var(--body);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn.primary{background:var(--gold);color:#1a1405}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.wa{background:#1f9d55;color:#fff}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+/* summary */
+aside.panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+@media (max-width:880px){aside.panel{position:static}}
+aside h3{font-size:18px;margin-bottom:10px}
+.sel{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.sel li{display:flex;justify-content:space-between;gap:8px;background:var(--tile);border-radius:8px;padding:7px 10px;font-size:14.5px}
+.sel li button{border:0;background:none;color:var(--muted);cursor:pointer;font-size:16px;padding:0 2px}
+.muted{color:var(--muted);font-size:14.5px}
+.how{margin-top:18px;border-top:1px solid var(--line);padding-top:14px;font-size:14.5px;color:var(--muted)}
+.how ol{padding-left:18px;margin:6px 0 0;display:grid;gap:4px}
+.phone{font-family:var(--display);font-weight:800;font-size:20px;color:var(--ink);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+/* done */
+.msg{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:14.5px;max-height:320px;overflow:auto}
+.okmark{width:52px;height:52px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:26px;font-weight:800;margin-bottom:10px}
+footer{color:var(--muted);font-size:13.5px;padding-block:0 32px;text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.ph-bano{background-image:url(https://images.unsplash.com/photo-1733426107854-ee00a25d72a7?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-ducha{background-image:url(https://images.unsplash.com/photo-1571781418606-70265b9cce90?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-cocina{background-image:url(https://images.unsplash.com/photo-1671197244266-73129c97c096?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-azulejo{background-image:url(https://images.unsplash.com/photo-1523413307857-ef24c53571ae?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-casa{background-image:url(https://images.unsplash.com/photo-1674649207083-281c2517ab49?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-antiguo{background-image:url(https://images.unsplash.com/photo-1736182615481-3795ea557614?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-local{background-image:url(https://images.unsplash.com/photo-1777195595983-d9efde4c1223?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-mayor{background-image:url(https://images.unsplash.com/photo-1758691031787-90867cb6fb2c?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-repar{background-image:url(https://images.unsplash.com/photo-1426927308491-6380b6a9936f?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-pintura{background-image:url(https://images.unsplash.com/photo-1693985120993-e9b203ce7631?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-suelo{background-image:url(https://images.unsplash.com/photo-1708919268837-2b4857323447?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-tarima{background-image:url(https://images.unsplash.com/photo-1761053133165-0f3acdaf1770?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-pladur{background-image:url(https://images.unsplash.com/photo-1768839725085-829e6ac7ac26?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-madera{background-image:url(https://images.unsplash.com/photo-1659930087003-2d64e33181f7?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-puerta{background-image:url(https://images.unsplash.com/photo-1561111283-8eff0e921cf6?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-fonta{background-image:url(https://images.unsplash.com/photo-1749532125405-70950966b0e5?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-luz{background-image:url(https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-aire{background-image:url(https://images.unsplash.com/photo-1726614846573-c1ac2e6161d1?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-eco{background-image:url(https://images.unsplash.com/photo-1655300256335-beef51a914fe?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-aislam{background-image:url(https://images.unsplash.com/photo-1752852381113-7d93abc9d7ea?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-ventana{background-image:url(https://images.unsplash.com/photo-1630368177606-471ad5e501c4?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-cerram{background-image:url(https://images.unsplash.com/photo-1759412393800-0ac06909423a?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-imper{background-image:url(https://images.unsplash.com/photo-1635424709845-3a85ad5e1f5e?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-fachada{background-image:url(https://images.unsplash.com/photo-1481253127861-534498168948?w=420&h=420&fit=crop&q=70&auto=format)}
+.ph-patio{background-image:url(https://images.unsplash.com/photo-1636026093316-ae12fc4ebe64?w=420&h=420&fit=crop&q=70&auto=format)}
+.scene[class*="ph-"]{background-size:cover;background-position:center}
+.scene[class*="ph-"]::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 45% at 50% 58%,rgba(8,16,32,.55),transparent 75%),linear-gradient(180deg,transparent 35%,rgba(8,16,32,.55))}
+.scene[class*="ph-"] .ico{display:none}
+.scene[class*="ph-"] .name,.scene[class*="ph-"] .tick{z-index:1}
+.scene[class*="ph-"] .name{top:50%;transform:translate(-50%,-50%)}
+.credit{font-size:12px;color:var(--muted);margin:8px 0 0;text-align:right}
 
+
+/* fondo de página */
+body{background:#04080e;isolation:isolate}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(4,8,14,.93) 0%,rgba(4,8,14,.6) 45%,rgba(4,8,14,.25) 100%),url(img/fondo.webp) right center/auto 100% no-repeat,#04080e}
+@media (max-width:760px){body::before{background:linear-gradient(180deg,rgba(4,8,14,.55),rgba(4,8,14,.85)),url(img/fondo.webp) center 30%/cover no-repeat,#04080e}}
+.top{background:rgba(10,18,34,.72);backdrop-filter:blur(6px)}
+.hero{background:transparent}
+footer{color:#b9c3d6}
+.legal-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.legal-links a{color:var(--muted);text-decoration:underline;font-size:13px}
+.legal-links a:hover{color:var(--gold)}
+details.legal{max-width:640px;margin:14px auto 0;text-align:left}
+details.legal summary{list-style:none;cursor:pointer;color:var(--muted);font-size:13px;text-decoration:underline}
+details.legal summary::-webkit-details-marker{display:none}
+details.legal .cuerpo{margin-top:10px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+details.legal .cuerpo p{margin:0 0 10px}
+
+/* sin cuadros blancos: todo sobre el fondo oscuro */
+:root:root:root{color-scheme:dark;--surface:transparent;--ink:#eef2f8;--muted:#aab6ca;--line:rgba(255,255,255,.22);--bg:rgba(255,255,255,.07);--tile:rgba(255,255,255,.09);--gold-soft:rgba(201,162,75,.22)}
+.panel{border:0;border-radius:0;padding-inline:0}
+.step{background:rgba(4,8,14,.45)}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#1a1405}
+input::placeholder,textarea::placeholder{color:rgba(238,242,248,.5)}
+.svc .dia{box-shadow:0 10px 24px rgba(0,0,0,.5)}
+
+/* clienta arriba, profesionales abajo */
+.trio{grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 22px;max-width:980px}
+.trio{max-width:860px}
+.c1{grid-column:2;grid-row:1}.c2{grid-column:1;grid-row:2}.c4{grid-column:2;grid-row:2}.c3{grid-column:3;grid-row:2}
+@media (max-width:900px) and (min-width:641px){.trio{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.trio{grid-template-columns:1fr}.c1,.c2,.c3,.c4{grid-column:auto;grid-row:auto}}
+
+.wa-chat{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#08240f;font-weight:700;text-decoration:none;border-radius:999px;padding:10px 18px;text-shadow:none}
+.wa-chat:hover{filter:brightness(1.05)}
+.wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;width:58px;height:58px;border-radius:50%;background:#25d366;color:#08240f;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.45)}
+.wa-float svg{width:30px;height:30px}
+.wa-float:hover{transform:scale(1.06)}
+
+/* resumen debajo de los rombos + rombos separados y flotando */
+.layout{grid-template-columns:1fr}
+aside.panel{position:static;max-width:640px}
+.svc{animation:flotar 4.5s ease-in-out infinite}
+.svc:nth-child(3n+1){animation-delay:-1.5s}.svc:nth-child(3n+2){animation-delay:-3s}
+@keyframes flotar{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@media (prefers-reduced-motion: reduce){.svc{animation:none}}
+
+#p1 .row{margin-top:-24px}
+.layout{padding-bottom:32px}
+#count1,.info{display:none}
+#p1 .row{justify-content:flex-end;position:relative;z-index:2}
+details.legal>summary{display:none}
+details.legal:not([open]){display:none}
+footer.wrap{padding-top:24px}
+.op h2,.op .sub{display:none!important}
+.tarjeta.rev{background:#efece6;border:0;color:#222;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.tarjeta.rev .quien{margin:0;display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:#6b6b6b}
+.tarjeta.rev .quien b{color:#222;font-family:var(--display)}
+.tarjeta.rev .okv{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:#3bb54a;color:#fff;font-size:10px;font-weight:800}
+.tarjeta.rev .loc{font-size:12.5px;margin-left:auto}
+.tarjeta.rev p{color:#333}
+.fianza{margin-top:10px;border:1.5px solid var(--gold);background:rgba(201,162,75,.12);border-radius:12px;padding:12px 14px;font-size:14.5px;line-height:1.45;max-width:560px}
+.fianza b{color:var(--gold)}
+.tarjeta.rev .est{color:#222;text-align:center;font-size:19px;letter-spacing:3px;margin-top:auto}
+.quotes .q{position:relative;overflow:hidden;animation:qluz 4s ease-in-out infinite}
+.quotes .q::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);transform:translateX(-130%);animation:qbrillo 4s ease-in-out infinite}
+.quotes .q:nth-child(2),.quotes .q:nth-child(2)::after{animation-delay:1s}
+.quotes .q:nth-child(3),.quotes .q:nth-child(3)::after{animation-delay:2s}
+.quotes .q:nth-child(4),.quotes .q:nth-child(4)::after{animation-delay:3s}
+@keyframes qluz{0%,32%,100%{transform:none;box-shadow:none}8%,22%{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 0 0 2px var(--gold),0 0 24px rgba(201,162,75,.6)}}
+@keyframes qbrillo{0%{transform:translateX(-130%)}22%,100%{transform:translateX(130%)}}
+@media (prefers-reduced-motion: reduce){.quotes .q,.quotes .q::after{animation:none}}
+.steps .step{position:relative;overflow:hidden}
+.steps .step:not(:last-child){padding-right:38px}
+.steps .step:not(:last-child)::after{content:"\279C";position:absolute;right:14px;top:50%;color:var(--gold);font-size:17px;line-height:1;animation:flecha 1.2s ease-in-out infinite}
+.steps .step:nth-child(2)::after{animation-delay:.4s}
+.steps .step::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 30%,rgba(201,162,75,.35) 50%,transparent 70%);transform:translateX(-130%);animation:qbrillo 3s ease-in-out infinite}
+.steps .step:nth-child(2)::before{animation-delay:1s}
+.steps .step:nth-child(3)::before{animation-delay:2s}
+@keyframes flecha{0%,100%{transform:translate(-5px,-50%);opacity:.35}50%{transform:translate(5px,-50%);opacity:1}}
+@media (prefers-reduced-motion: reduce){.steps .step::before,.steps .step::after{animation:none}.steps .step:not(:last-child)::after{transform:translateY(-50%)}}
+/* arquitecta en el lateral izquierdo (pantallas anchas) */
+@media (min-width:1400px){body::after{content:"";position:fixed;top:0;bottom:0;left:0;width:calc((100vw - 1120px)/2 + 40px);z-index:-1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(4,8,14,.05) 0%,rgba(4,8,14,.25) 55%,#04080e 100%),linear-gradient(180deg,rgba(4,8,14,.35),transparent 20%,transparent 80%,rgba(4,8,14,.6)),url(img/arquitecta.webp) center 20%/cover no-repeat}}
+/* fondo de hexágonos (canvas) y obrero en el lateral derecho */
+body::before{display:none}
+#hexfondo{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.obrero-lado{display:none}
+@media (min-width:1400px){.obrero-lado{display:block;position:fixed;right:0;bottom:0;height:74vh;width:calc((100vw - 1120px)/2 + 20px);z-index:-1;pointer-events:none;background:url(img/obrero.webp) right bottom/contain no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%);mask-image:linear-gradient(90deg,transparent,#000 22%)}}
+/* cabecera profesional: marca a la izquierda, buscador y categorías arriba */
+.top .top-in{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center;padding-block:12px}
+.top .tools{margin:0;justify-self:center;width:100%;max-width:560px}
+.top .tools input{border-radius:999px;padding:10px 16px 10px 42px;font-size:15px;background:rgba(255,255,255,.08) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23c9a24b' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") 15px center no-repeat;border:1px solid rgba(255,255,255,.18)}
+.top .tools input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,75,.25)}
+.top .chips{margin:0;padding:0 0 12px;gap:8px;justify-content:center}
+.top .chip{font-size:13.5px;padding:5px 13px;background:rgba(255,255,255,.04)}
+.top .chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#1a1405}
+#p1{scroll-margin-top:130px}
+body{margin:0}
+.top{background:rgba(8,12,22,.93)}
+@media (min-width:900px){.top{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(201,162,75,.18)}}
+@media (max-width:760px){
+  .top .top-in{grid-template-columns:auto auto;gap:10px 12px}
+  .top .top-in small{justify-self:end;text-align:right;font-size:13px}
+  .top .tools{grid-column:1/-1;order:3;max-width:none}
+  .top .chips{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  .top .chips::-webkit-scrollbar{display:none}
+  .top .chip{flex:none}
+  #p1{scroll-margin-top:12px}
+}
+</style>
+
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="obrero-lado" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="/" aria-label="NEXTNIVEL LCH, ir al inicio"><img class="brand-ico" src="img/logo-icono.webp" alt="" width="52" height="48"><span class="brand-txt"><span class="bn">NEXT</span><span class="bo">NIVEL</span><span class="bl">LCH</span></span></a>
+    <div class="tools"><input id="q" type="search" placeholder="Busca tu reforma: baño, pintura, ventanas…" aria-label="Buscar servicio"></div>
+    <small>Sevilla y alrededores</small>
+  </div>
+  <div class="wrap"><div class="chips" id="chips" role="group" aria-label="Filtrar por tipo"></div></div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="trio">
+      <div class="char c1">
+        <div class="bub think">Quiero reformar… pero ¿a quién llamo? ¿Y cuánto me costará?</div>
+        <figure class="pic"><img src="img/clienta.webp" alt="Clienta pensando qué reformar en su casa"></figure>
+        <span class="tag">Tú</span>
+      </div>
+      <div class="char c2">
+        <div class="bub say"><span class="who">NEXTNIVEL LCH</span>¿Qué estás pensando hacer o reformar en tu hogar? Te conseguimos hasta 3 presupuestos.</div>
+        <figure class="pic"><img src="img/tecnico.webp" alt="Técnico de NEXTNIVEL LCH con casco y chaleco"></figure>
+        <span class="tag">Te pregunta</span>
+      </div>
+      <div class="char c4">
+        <div class="bub say"><span class="who">Presupuesto 1 · Empresa verificada</span>Somos una empresa de reformas. Te visitamos y te damos precio cerrado.</div>
+        <figure class="pic"><img src="img/empresa.webp" alt="Jefa de obra con casco y carpeta"></figure>
+        <span class="tag">✓ Empresa</span>
+      </div>
+      <div class="char c3">
+        <div class="bub say"><span class="who">Presupuesto 2 · Autónomo verificado</span>Soy autónomo de la zona. Buen precio y trato directo.</div>
+        <figure class="pic"><img src="img/autonomo.webp" alt="Profesional de obra sonriendo en una obra"></figure>
+        <span class="tag">✓ Autónomo</span>
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1>Recibe hasta 3 presupuestos <span>y elige el que más te convenga</span></h1>
+      <p>Cuéntanos qué quieres hacer. Se lo pasamos a empresas y autónomos verificados de tu zona y tú comparas precios y eliges. Gratis y sin compromiso.</p>
+      <div class="facts"><span>Hasta 3 presupuestos gratis</span><span>Empresas y autónomos verificados</span><span>Tú eliges, sin compromiso</span></div>
+      <div class="quotes" aria-label="Así recibes tus presupuestos">
+        <div class="q"><b>Presupuesto 1</b><span>Empresa verificada</span></div>
+        <div class="q"><b>Presupuesto 2</b><span>Autónomo verificado</span></div>
+        <div class="q"><b>Presupuesto 3</b><span>Empresa o autónomo</span></div>
+        <div class="q you"><b>Tú eliges</b><span>el que más te convenga</span></div>
+      </div>
+      <a class="btn primary hero-cta" href="#p1">Elegir mi reforma ↓</a>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <nav class="steps" aria-label="Pasos">
+    <div class="step on" id="st1"><i>1</i>Elige el trabajo</div>
+    <div class="step" id="st2"><i>2</i>Tus datos y fotos</div>
+    <div class="step" id="st3"><i>3</i>Enviar solicitud</div>
+  </nav>
+
+  <div class="layout">
+    <div>
+      <!-- PASO 1 -->
+      <section class="panel" id="p1">
+        <h2>¿Qué necesitas?</h2>
+        <p class="lead">Pulsa sobre la imagen del trabajo. Puedes elegir varios.</p>
+        <div class="grid" id="grid"></div>
+        <p class="empty" id="empty" hidden>No hay resultados. Prueba con otra palabra o elige «Reparaciones y pequeñas reformas».</p>
+        <div class="row">
+          <span class="muted" id="count1">Ningún trabajo elegido</span>
+          <button class="btn primary" id="next1" disabled>Continuar →</button>
+        </div>
+      </section>
+
+      <!-- PASO 2 -->
+      <section class="panel" id="p2" hidden>
+        <h2>Tus datos</h2>
+        <p class="lead">Los usamos para llamarte y para que hasta 3 profesionales verificados te den su presupuesto.</p>
+        <form id="form" novalidate>
+          <div class="fields">
+            <div><label for="nombre">Nombre y apellidos</label><input id="nombre" autocomplete="name" placeholder="Ej. María López"><div class="err" id="e-nombre"></div></div>
+            <div><label for="movil">Número de móvil</label><input id="movil" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej. 612 345 678"><div class="err" id="e-movil"></div></div>
+            <div class="full"><label for="email">Correo electrónico <em>(opcional)</em></label><input id="email" type="email" inputmode="email" autocomplete="email" placeholder="Ej. maria@gmail.com"><div class="err" id="e-email"></div></div>
+            <div class="full"><label for="direccion">Dirección de la obra</label><input id="direccion" autocomplete="street-address" placeholder="Calle, número, piso"><div class="err" id="e-direccion"></div></div>
+            <div><label for="localidad">Localidad</label><input id="localidad" list="pueblos" placeholder="Sevilla"><datalist id="pueblos"></datalist><div class="err" id="e-localidad"></div></div>
+            <div><label for="cp">Código postal <em>(opcional)</em></label><input id="cp" inputmode="numeric" maxlength="5" placeholder="41000"></div>
+            <div class="full"><label>¿Cuándo te gustaría empezar?</label>
+              <div class="urg" role="radiogroup">
+                <label><input type="radio" name="cuando" value="En una semana" data-fianza="0"> 1 semana</label>
+                <label><input type="radio" name="cuando" value="En dos semanas" data-fianza="0"> 2 semanas</label>
+                <label><input type="radio" name="cuando" value="En un mes" data-fianza="150" checked> 1 mes</label>
+                <label><input type="radio" name="cuando" value="En 2-3 meses" data-fianza="200"> 2–3 meses</label>
+              </div>
+              <div class="fianza" id="fianzaNota" hidden></div>
+            </div>
+            <div class="full"><label for="desc">Cuéntanos un poco más <em>(opcional)</em></label><textarea id="desc" placeholder="Ej. Baño de 5 m², quiero quitar la bañera y poner plato de ducha con mampara."></textarea></div>
+            <div class="full">
+              <label>Fotos de la zona <em>(opcional, hasta 6)</em></label>
+              <div class="drop" id="drop" tabindex="0" role="button" aria-label="Añadir fotos"><strong>Pulsa para añadir fotos</strong><br>o arrástralas aquí</div>
+              <input type="file" id="fotos" accept="image/*" multiple hidden>
+              <div class="thumbs" id="thumbs"></div>
+            </div>
+            <div class="full consent"><input type="checkbox" id="acepto"><label for="acepto" style="font-weight:400;margin:0">Acepto que NEXTNIVEL LCH comparta mis datos con hasta 3 empresas o autónomos verificados para que me envíen su presupuesto.</label></div>
+            <div class="full err" id="e-acepto"></div>
+          </div>
+          <div class="row">
+            <button type="button" class="btn ghost" id="back2">← Cambiar trabajo</button>
+            <button type="submit" class="btn primary">Pedir presupuesto</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- PASO 3 -->
+      <section class="panel" id="p3" hidden>
+        <div class="okmark" aria-hidden="true">✓</div>
+        <h2>Último paso: envía tu solicitud</h2>
+        <p class="lead">Revisa tus datos y pulsa «Enviar solicitud». Te contactaremos lo antes posible.</p>
+        <div class="row" style="justify-content:flex-start;margin-top:0">
+          <button class="btn primary" id="enviar">Enviar solicitud</button>
+          <a class="btn wa" id="walink" href="#" target="_blank" rel="noopener">También por WhatsApp</a>
+          <button class="btn ghost" id="copy">Copiar texto</button>
+        </div>
+        <p id="envioMsg" role="status" style="margin:14px 0;font-weight:700"></p>
+        <p class="muted" id="fotoNote" hidden style="margin-top:14px"><strong style="color:var(--ink)">Tus fotos:</strong> WhatsApp no deja adjuntarlas automáticamente. Cuando se abra el chat, pulsa el clip y añade las <span id="nfotos"></span> fotos que has elegido.</p>
+        <div class="msg" id="msg"></div>
+        <div class="row"><button class="btn ghost" id="back3">← Editar datos</button><button class="btn ghost" id="nueva">Nueva solicitud</button></div>
+      </section>
+    </div>
+
+    <aside class="panel" aria-live="polite">
+      <h3>Tu solicitud</h3>
+      <ul class="sel" id="sel"></ul>
+      <p class="muted" id="selEmpty">Aún no has elegido ningún trabajo.</p>
+      <div class="how">
+        <strong style="color:var(--ink)">Cómo funciona</strong>
+        <ol><li>Eliges el trabajo y nos dejas tus datos.</li><li>Pasamos tu solicitud a empresas y autónomos verificados de tu zona.</li><li>Recibes hasta 3 presupuestos distintos.</li><li>Comparas y eliges el que más te convenga. Sin compromiso.</li></ol>
+        <p style="margin:14px 0 6px">Atención al cliente solo por WhatsApp</p><a class="wa-chat" href="https://wa.me/34641571523" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8.2 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8c-.9-.4-1.7-1.2-2.1-2.1l.8-1-1-2z" fill="currentColor" stroke="none"/></svg><span>Chatea con nosotros</span></a>
+      </div>
+    </aside>
+  </div>
+</main>
+<a class="wa-float" href="https://wa.me/34641571523" target="_blank" rel="noopener" aria-label="Chatea con nosotros por WhatsApp"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8.2 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8c-.9-.4-1.7-1.2-2.1-2.1l.8-1-1-2z" fill="currentColor" stroke="none"/></svg></a>
+<footer class="wrap">
+  <img class="foot-logo" src="img/logo.webp" alt="NEXTNIVEL LCH" width="207" height="180" loading="lazy">
+  <div>NEXTNIVEL LCH · Reformas y arreglos en Sevilla</div>
+  <nav class="legal-links" aria-label="Enlaces legales">
+    <a href="#legal-privacidad" data-legal="legal-privacidad">Política de Privacidad</a>
+    <a href="#legal-aviso" data-legal="legal-aviso">Aviso Legal</a>
+    <a href="#legal-cookies" data-legal="legal-cookies">Política de Cookies</a>
+  </nav>
+  <details class="legal" id="legal-privacidad">
+    <summary>Política de Privacidad</summary>
+    <div class="cuerpo">
+      <p><strong>Responsable:</strong> NEXTNIVEL LCH (en adelante, "NEXTNIVEL LCH"), con domicilio de actividad en Sevilla, España. Contacto: a través de WhatsApp en el número indicado en esta web.</p>
+      <p><strong>Finalidad:</strong> los datos que nos facilitas en el formulario (nombre, teléfono, dirección de la obra, localidad, código postal, descripción del trabajo y fotos, si las adjuntas) se usan para gestionar tu solicitud de presupuesto y ponerte en contacto, tú o nosotros, con hasta 3 empresas o autónomos verificados que puedan realizarte el trabajo.</p>
+      <p><strong>Legitimación:</strong> tu consentimiento expreso, otorgado al marcar la casilla de aceptación antes de enviar el formulario.</p>
+      <p><strong>Destinatarios:</strong> tus datos se comparten únicamente con las empresas o autónomos verificados a los que se traslada tu solicitud, con el fin de que puedan ofrecerte presupuesto. No se venden ni ceden a terceros para fines distintos.</p>
+      <p><strong>Conservación:</strong> tus datos se conservan mientras dure la gestión de tu solicitud y, posteriormente, durante el plazo necesario para cumplir obligaciones legales.</p>
+      <p><strong>Tus derechos:</strong> puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiéndonos por WhatsApp. También puedes reclamar ante la Agencia Española de Protección de Datos (AEPD) si consideras que no hemos tratado tus datos correctamente.</p>
+    </div>
+  </details>
+  <details class="legal" id="legal-aviso">
+    <summary>Aviso Legal</summary>
+    <div class="cuerpo">
+      <p>Esta web es un servicio de intermediación operado por NEXTNIVEL LCH, con actividad en Sevilla y alrededores, cuya finalidad es poner en contacto a particulares que buscan presupuestos de reforma con empresas y autónomos del sector.</p>
+      <p>NEXTNIVEL LCH no ejecuta directamente los trabajos de reforma salvo que así se indique expresamente; actúa como intermediario entre el cliente y los profesionales verificados a los que traslada la solicitud.</p>
+      <p>El uso de este sitio web implica la aceptación de las condiciones descritas en este Aviso Legal y en la Política de Privacidad. Nos reservamos el derecho a modificar esta información cuando sea necesario.</p>
+      <p>Para cualquier consulta relacionada con el contenido de esta web, puedes contactarnos por WhatsApp.</p>
+    </div>
+  </details>
+  <details class="legal" id="legal-cookies">
+    <summary>Política de Cookies</summary>
+    <div class="cuerpo">
+      <p>Esta web no utiliza cookies propias de seguimiento o publicidad. Únicamente se cargan recursos técnicos necesarios para su funcionamiento: tipografías (Google Fonts), imágenes de referencia (Unsplash) y el almacenamiento de las opiniones de clientes (Supabase), que pueden implicar una conexión con esos proveedores externos al cargar la página.</p>
+      <p>No se realiza un seguimiento de tu navegación con fines publicitarios ni se comparte tu actividad con terceros para ese fin.</p>
+    </div>
+  </details>
+</footer>
+
+<script>
+(function(){
+const WA = "34641571523";
+const I = {
+ bano:'<path d="M6 26h36v4a8 8 0 0 1-8 8H14a8 8 0 0 1-8-8z"/><path d="M10 26V12a4 4 0 0 1 8 0"/><path d="M14 38l-2 4M34 38l2 4"/>',
+ ducha:'<path d="M8 42V10a4 4 0 0 1 4-4h8a6 6 0 0 1 6 6v2"/><path d="M18 14h16"/><path d="M20 20v2M26 20v3M32 20v2M23 26v2M29 26v2M26 32v2"/><path d="M4 42h40"/>',
+ cocina:'<path d="M8 16h32v26H8z"/><path d="M8 24h32"/><circle cx="17" cy="20" r="1.5"/><circle cx="31" cy="20" r="1.5"/><path d="M14 30h20v8H14z"/><path d="M16 6c2 2-2 4 0 6M24 6c2 2-2 4 0 6M32 6c2 2-2 4 0 6"/>',
+ casa:'<path d="M6 22 24 8l18 14"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/>',
+ pintura:'<path d="M8 8h26v9H8z"/><path d="M34 12h5v10H22v6"/><path d="M19 28h6v14h-6z"/>',
+ azulejo:'<path d="M8 8h32v32H8z"/><path d="M8 19h32M8 29h32M19 8v32M29 8v32"/>',
+ suelo:'<path d="M4 40 14 16h20l10 24z"/><path d="M24 16v24M19 16l-5 24M29 16l5 24M9 28h30"/>',
+ tarima:'<path d="M6 12h36v8H6zM6 20h36v8H6zM6 28h36v8H6z"/><path d="M18 12v8M32 20v8M14 28v8"/>',
+ antiguo:'<path d="M12 42V10h24v32"/><path d="M18 16h4M26 16h4M18 24h4M26 24h4"/><path d="M21 42v-8h6v8"/><path d="M8 42h32"/>',
+ local:'<path d="M6 18l4-10h28l4 10z"/><path d="M8 18v24h32V18"/><path d="M14 42V28h8v14M28 28h8v7h-8z"/>',
+ fonta:'<path d="M6 14h16a6 6 0 0 1 6 6v6"/><path d="M6 20h14"/><path d="M20 8v6M15 8h10"/><path d="M28 30c0 3-3 5-3 7a3 3 0 0 0 6 0c0-2-3-4-3-7z"/>',
+ luz:'<path d="M26 4 12 26h11l-3 18 16-24H25z"/>',
+ aire:'<path d="M6 10h36v14H6z"/><path d="M12 18h24"/><path d="M14 30l-2 6M24 30v8M34 30l2 6"/>',
+ ventana:'<path d="M10 6h28v36H10z"/><path d="M24 6v36M10 24h28"/>',
+ cerram:'<path d="M6 14h36v28H6z"/><path d="M18 14v28M30 14v28M6 30h36"/><path d="M4 14 24 6l20 8"/>',
+ imper:'<path d="M24 6S12 19 12 28a12 12 0 0 0 24 0c0-9-12-22-12-22z"/><path d="M18 30l4 4 8-8"/>',
+ fachada:'<path d="M6 10h36v28H6z"/><path d="M6 17h36M6 24h36M6 31h36M18 10v7M30 10v7M12 17v7M24 17v7M36 17v7M18 24v7M30 24v7M12 31v7M24 31v7M36 31v7"/>',
+ pladur:'<path d="M4 10h40"/><path d="M8 10v6h32v-6"/><path d="M14 16v4M34 16v4"/><path d="M10 20h28"/><path d="M22 30h4M24 28v4"/><circle cx="24" cy="36" r="4"/>',
+ madera:'<path d="M8 30 30 8l8 8-22 22z"/><path d="M14 24l2 2M18 20l2 2M22 16l2 2"/><path d="M8 40h32"/>',
+ puerta:'<path d="M12 42V6h24v36"/><path d="M6 42h36"/><path d="M30 24h2"/>',
+ patio:'<path d="M24 42V22"/><path d="M24 22c0-8 6-12 12-12 0 8-6 12-12 12z"/><path d="M24 28c0-6-5-10-10-10 0 6 5 10 10 10z"/><path d="M14 42h20"/>',
+ mayor:'<circle cx="22" cy="9" r="3"/><path d="M22 14v12h9l5 11"/><path d="M22 20h-7"/><path d="M17 27a8 8 0 1 0 12 8"/>',
+ eco:'<path d="M10 38C10 18 24 8 40 8c0 18-12 30-30 30z"/><path d="M10 38 26 22"/>',
+ aislam:'<path d="M6 10h36M6 38h36"/><path d="M6 24c4-7 8-7 12 0s8 7 12 0 8-7 12 0"/><path d="M6 17c4-5 8-5 12 0s8 5 12 0 8-5 12 0M6 31c4 5 8 5 12 0s8-5 12 0 8 5 12 0"/>',
+ repar:'<path d="M31 6a10 10 0 0 0-9 14L6 36l6 6 16-16a10 10 0 0 0 14-9l-6 5-6-2-1-6z"/>'
+};
+const S = [
+ ["Reformas de baños","Baños y cocinas","bano"],
+ ["Cambio de bañera por plato de ducha","Baños y cocinas","ducha"],
+ ["Reformas de cocinas","Baños y cocinas","cocina"],
+ ["Alicatado de baños y cocinas","Baños y cocinas","azulejo"],
+ ["Reformas integrales de viviendas","Reformas","casa"],
+ ["Reforma de pisos antiguos","Reformas","antiguo"],
+ ["Reformas de locales comerciales","Reformas","local"],
+ ["Reparaciones y pequeñas reformas","Reformas","repar"],
+ ["Pintura de pisos y casas","Acabados","pintura"],
+ ["Cambio de suelos y pavimentos","Acabados","suelo"],
+ ["Instalación de tarima y suelo laminado","Acabados","tarima"],
+ ["Pladur y falsos techos","Acabados","pladur"],
+ ["Carpintería de madera","Acabados","madera"],
+ ["Instalación de puertas","Acabados","puerta"],
+ ["Fontanería","Instalaciones","fonta"],
+ ["Electricidad","Instalaciones","luz"],
+ ["Instalación de aire acondicionado","Instalaciones","aire"],
+ ["Reformas para mejorar la eficiencia energética","Instalaciones","eco"],
+ ["Instalación de aislamiento térmico","Instalaciones","aislam"],
+ ["Cambio de ventanas","Exterior","ventana"],
+ ["Cerramientos de terrazas","Exterior","cerram"],
+ ["Impermeabilización de terrazas y azoteas","Exterior","imper"],
+ ["Rehabilitación de fachadas","Exterior","fachada"],
+ ["Reformas de patios y terrazas","Exterior","patio"]
+];
+const SHORT = {"Reformas de baños": "Baños", "Cambio de bañera por plato de ducha": "Bañera por ducha", "Reformas de cocinas": "Cocinas", "Alicatado de baños y cocinas": "Alicatado", "Reformas integrales de viviendas": "Reforma integral", "Reforma de pisos antiguos": "Pisos antiguos", "Reformas de locales comerciales": "Locales comerciales", "Adaptación de viviendas para personas mayores": "Adaptación mayores", "Reparaciones y pequeñas reformas": "Pequeñas reparaciones", "Pintura de pisos y casas": "Pintura", "Cambio de suelos y pavimentos": "Suelos", "Instalación de tarima y suelo laminado": "Tarima y laminado", "Pladur y falsos techos": "Pladur y techos", "Carpintería de madera": "Carpintería", "Instalación de puertas": "Puertas", "Fontanería": "Fontanería", "Electricidad": "Electricidad", "Instalación de aire acondicionado": "Aire acondicionado", "Reformas para mejorar la eficiencia energética": "Eficiencia energética", "Instalación de aislamiento térmico": "Aislamiento térmico", "Cambio de ventanas": "Ventanas", "Cerramientos de terrazas": "Cerramiento terrazas", "Impermeabilización de terrazas y azoteas": "Impermea­bilización", "Rehabilitación de fachadas": "Fachadas", "Reformas de patios y terrazas": "Patios y terrazas"};
+const CATS = ["Todos","Baños y cocinas","Reformas","Acabados","Instalaciones","Exterior"];
+const $ = id => document.getElementById(id);
+window.PUEBLOS_SEV = "Aguadulce|Alanís|Albaida del Aljarafe|Alcalá de Guadaíra|Alcalá del Río|Alcolea del Río|Algámitas|Almadén de la Plata|Almensilla|Arahal|Aznalcázar|Aznalcóllar|Badolatosa|Benacazón|Bollullos de la Mitación|Bormujos|Brenes|Burguillos|Camas|Cantillana|Cañada Rosal|Carmona|Carrión de los Céspedes|Casariche|Castilblanco de los Arroyos|Castilleja de Guzmán|Castilleja de la Cuesta|Castilleja del Campo|Cazalla de la Sierra|Constantina|Coria del Río|Coripe|Dos Hermanas|Écija|El Castillo de las Guardas|El Coronil|El Cuervo de Sevilla|El Garrobo|El Madroño|El Palmar de Troya|El Pedroso|El Real de la Jara|El Ronquillo|El Rubio|El Saucejo|El Viso del Alcor|Espartinas|Estepa|Fuentes de Andalucía|Gelves|Gerena|Gilena|Gines|Guadalcanal|Guillena|Herrera|Huévar del Aljarafe|Isla Mayor|La Algaba|La Campana|La Luisiana|La Puebla de Cazalla|La Puebla de los Infantes|La Puebla del Río|La Rinconada|La Roda de Andalucía|Lantejuela|Las Cabezas de San Juan|Las Navas de la Concepción|Lebrija|Lora de Estepa|Lora del Río|Los Corrales|Los Molares|Los Palacios y Villafranca|Mairena del Alcor|Mairena del Aljarafe|Marchena|Marinaleda|Martín de la Jara|Montellano|Morón de la Frontera|Olivares|Osuna|Palomares del Río|Paradas|Pedrera|Peñaflor|Pilas|Pruna|Salteras|San Juan de Aznalfarache|San Nicolás del Puerto|Sanlúcar la Mayor|Santiponce|Sevilla|Tocina|Tomares|Umbrete|Utrera|Valencina de la Concepción|Villamanrique de la Condesa|Villanueva de San Juan|Villanueva del Ariscal|Villanueva del Río y Minas|Villaverde del Río".split("|");
+$("pueblos").innerHTML = PUEBLOS_SEV.map(p=>`<option value="${p}">`).join("");
+const chosen = new Set(); let cat = "Todos"; let photos = [];
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+
+$("chips").innerHTML = CATS.map(c=>`<button type="button" class="chip" aria-pressed="${c==="Todos"}" data-c="${c}">${c}</button>`).join("");
+$("chips").addEventListener("click", e=>{const b=e.target.closest(".chip"); if(!b) return; cat=b.dataset.c; document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed", x===b)); renderGrid(); jump(true);});
+$("q").addEventListener("input", ()=>{renderGrid(); jump(false);});
+function jump(force){ if($("p1").hidden){go(1);return;} const t=$("p1").getBoundingClientRect().top;
+  if(force||t>innerHeight*.6||t<-$("p1").offsetHeight+200) $("p1").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth", block:"start"}); }
+
+const SCENE={bano:"azul",ducha:"azul",azulejo:"azul",cocina:"cocina",casa:"cielo",antiguo:"calido",local:"calido",mayor:"verde",repar:"yeso",
+ pintura:"pintura",suelo:"madera",tarima:"madera",pladur:"yeso",madera:"madera",puerta:"madera",fonta:"agua",luz:"noche",aire:"frio",
+ eco:"verde",aislam:"calido",ventana:"cielo",cerram:"cielo",imper:"agua",fachada:"ladrillo",patio:"verde"};
+let visible=[];
+function renderGrid(){
+  const q = norm($("q").value.trim());
+  visible = S.map((s,i)=>({s,i})).filter(({s})=>(cat==="Todos"||s[1]===cat) && (!q || norm(s[0]+" "+s[1]).includes(q)));
+  $("grid").innerHTML = visible.map(({s,i})=>`<button type="button" class="svc" data-i="${i}" aria-pressed="${chosen.has(i)}" aria-label="${s[0]}"><span class="dia"><span class="scene sc-${SCENE[s[2]]} ph-${s[2]}"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true">${I[s[2]]}</svg><span class="tick" aria-hidden="true">✓</span><span class="name">${SHORT[s[0]]||s[0]}</span></span></span></button>`).join("");
+  $("empty").hidden = visible.length>0;
+  layout();
+}
+function layout(){
+  const g=$("grid"); const W=g.clientWidth; if(!W) return;
+  const n=visible.length; if(!n){g.style.height="0px";return;}
+  const cols = W<420?2:W<640?3:4;             // rombos en filas pares
+  const D = Math.min(W/cols, 230);             // diagonal de cada rombo
+  const gap = D*0.16, step=D/2+gap/2;
+  const offX=(W-cols*D)/2;
+  const pos=[]; let r=0;
+  while(pos.length<n){
+    const odd=r%2, per=odd?cols-1:cols;
+    for(let c=0;c<per&&pos.length<n;c++) pos.push([offX+c*D+(odd?D/2:0), 12+r*step]);
+    r++;
+  }
+  [...g.querySelectorAll(".svc")].forEach((b,k)=>{b.style.left=pos[k][0]+"px";b.style.top=pos[k][1]+"px";b.style.width=D+"px";b.style.height=D+"px";
+    b.querySelector(".name").style.fontSize=(Math.max(12.5,Math.min(16,D/14))/0.6)+"px";});
+  const H=pos[n-1][1]+D*0.55; g.style.height=H+"px";
+  // flechas punteadas decorativas entre algunos rombos
+  let arr="";
+  for(let k=0;k+1<n;k+=3){const a=pos[k],b=pos[k+1];if(!b)break;const x1=a[0]+D*.5,y1=a[1]+D*.98,x2=b[0]+D*.02,y2=b[1]+D*.5;
+    if(Math.abs(y2-y1)>D) continue;
+    arr+=`<path d="M${x1} ${y1} Q ${x1-D*.1} ${(y1+y2)/2+D*.25} ${x2} ${y2+D*.1}" /><path d="M${x2-6} ${y2+D*.1-3} L${x2} ${y2+D*.1} L${x2-5} ${y2+D*.1+5}"/>`;}
+  g.insertAdjacentHTML("afterbegin",`<svg class="arrows" aria-hidden="true" fill="none" stroke="var(--gold)" stroke-opacity=".7" stroke-width="1.6" stroke-dasharray="4 5" stroke-linecap="round">${arr}</svg>`);
+  const old=g.querySelectorAll("svg.arrows"); if(old.length>1) old[1].remove();
+}
+let lastW=0; new ResizeObserver(()=>{const w=$("grid").clientWidth; if(w!==lastW){lastW=w; layout();}}).observe($("grid"));
+$("grid").addEventListener("click", e=>{const b=e.target.closest(".svc"); if(!b) return; toggle(+b.dataset.i);});
+function toggle(i){ chosen.has(i)?chosen.delete(i):chosen.add(i); document.querySelectorAll(".svc").forEach(b=>b.setAttribute("aria-pressed",chosen.has(+b.dataset.i))); renderSel(); }
+function renderSel(){
+  const arr=[...chosen];
+  $("sel").innerHTML = arr.map(i=>`<li><span>${S[i][0]}</span><button type="button" aria-label="Quitar ${S[i][0]}" data-i="${i}">×</button></li>`).join("");
+  $("selEmpty").hidden = arr.length>0;
+  $("next1").disabled = !arr.length;
+  $("count1").textContent = arr.length ? `${arr.length} trabajo${arr.length>1?"s":""} elegido${arr.length>1?"s":""}` : "Ningún trabajo elegido";
+  if(!arr.length && $("p1").hidden) go(1);
+}
+$("sel").addEventListener("click", e=>{const b=e.target.closest("button"); if(b) toggle(+b.dataset.i);});
+
+function go(n){
+  [1,2,3].forEach(k=>{ $("p"+k).hidden = k!==n; const st=$("st"+k); st.classList.toggle("on",k===n); st.classList.toggle("done",k<n); st.querySelector("i").textContent = k<n?"✓":k; });
+  $("p"+n).scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth", block:"start"});
+}
+$("next1").onclick=()=>go(2);
+$("back2").onclick=()=>go(1);
+$("back3").onclick=()=>go(2);
+$("nueva").onclick=()=>{enviada="";chosen.clear(); photos=[]; $("form").reset(); notaFianza(); renderThumbs(); renderGrid(); renderSel(); go(1);};
+
+// fotos
+const drop=$("drop"), fin=$("fotos");
+drop.onclick=()=>fin.click();
+drop.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();fin.click();}};
+fin.onchange=()=>{addFiles(fin.files); fin.value="";};
+["dragover","dragenter"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("over");}));
+["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,()=>drop.classList.remove("over")));
+drop.addEventListener("drop",e=>{e.preventDefault(); addFiles(e.dataTransfer.files);});
+function addFiles(files){
+  [...files].filter(f=>f.type.startsWith("image/")).slice(0, 6-photos.length).forEach(f=>{
+    const r=new FileReader(); r.onload=()=>{photos.push({name:f.name,src:r.result}); renderThumbs();}; r.readAsDataURL(f);
+  });
+}
+function renderThumbs(){
+  $("thumbs").innerHTML = photos.map((p,i)=>`<div class="thumb"><img src="${p.src}" alt="Foto ${i+1}"><button type="button" data-i="${i}" aria-label="Quitar foto">×</button></div>`).join("");
+}
+$("thumbs").addEventListener("click",e=>{const b=e.target.closest("button"); if(b){photos.splice(+b.dataset.i,1); renderThumbs();}});
+
+// validación y envío
+function setErr(id,msg){ $("e-"+id).textContent=msg||""; const el=$(id); if(el && el.tagName!=="DIV") el.classList.toggle("bad",!!msg); return !msg; }
+$("form").addEventListener("submit", e=>{
+  e.preventDefault();
+  const v = id => $(id).value.trim();
+  const tel = v("movil").replace(/[\s.\-]/g,"").replace(/^(\+34|0034)/,"");
+  let ok = true;
+  ok = setErr("nombre", v("nombre").length<2 ? "Escribe tu nombre." : "") && ok;
+  ok = setErr("movil", /^[6789]\d{8}$/.test(tel) ? "" : "Escribe un móvil de 9 cifras, por ejemplo 612 345 678.") && ok;
+  ok = setErr("email", !v("email") || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email")) ? "" : "Revisa el correo, por ejemplo maria@gmail.com.") && ok;
+  ok = setErr("direccion", v("direccion").length<4 ? "Escribe la dirección donde se hará el trabajo." : "") && ok;
+  ok = setErr("localidad", v("localidad") ? "" : "Indica la localidad.") && ok;
+  $("e-acepto").textContent = $("acepto").checked ? "" : "Marca la casilla para que los profesionales puedan enviarte su presupuesto.";
+  ok = $("acepto").checked && ok;
+  if(!ok){ const f=document.querySelector(".bad"); if(f) f.focus(); return; }
+  const selC = document.querySelector('input[name="cuando"]:checked');
+  const cuando = selC ? selC.value : "";
+  const fianza = selC ? selC.dataset.fianza : "";
+  const telFmt = tel.replace(/(\d{3})(\d{2})(\d{2})(\d{2})/,"$1 $2 $3 $4");
+  const lines = [
+    "*Nueva solicitud – quiero recibir hasta 3 presupuestos (NEXTNIVEL LCH)*","",
+    "*Trabajos:*", ...[...chosen].map(i=>"• "+S[i][0]), "",
+    "*Nombre:* "+v("nombre"),
+    "*Móvil:* "+telFmt,
+    "*Dirección:* "+v("direccion")+", "+v("localidad")+(v("cp")?" ("+v("cp")+")":""),
+    "*Cuándo:* "+cuando,
+    "*Fianza al cerrar el acuerdo:* "+(+fianza?fianza+" €":"sin fianza")
+  ];
+  if(v("email")) lines.splice(lines.indexOf("*Móvil:* "+telFmt)+1,0,"*Correo:* "+v("email"));
+  if(v("desc")) lines.push("", "*Detalles:* "+v("desc"));
+  if(photos.length) lines.push("", `*Fotos:* ${photos.length} (las adjunto a continuación)`);
+  const text = lines.join("\n");
+  $("msg").textContent = text.replace(/\*/g,"");
+  $("walink").href = "https://wa.me/"+WA+"?text="+encodeURIComponent(text);
+  $("fotoNote").hidden = !photos.length; $("nfotos").textContent = photos.length;
+  $("copy").dataset.text = text;
+  // datos que se enviarán al panel de administración al pulsar «Enviar solicitud»
+  const datos = {nombre:v("nombre"),movil:telFmt,email:v("email")||null,direccion:v("direccion"),localidad:v("localidad"),cp:v("cp")||null,cuando:cuando?(cuando+(+fianza?" · fianza "+fianza+" €":" · sin fianza")):null,
+    descripcion:v("desc")||null,trabajos:[...chosen].map(i=>S[i][0]),num_fotos:photos.length};
+  const firma = JSON.stringify(datos);
+  if(firma !== enviada){ pendiente = datos; $("enviar").disabled=false; $("enviar").textContent="Enviar solicitud"; $("envioMsg").textContent=""; }
+  go(3);
+});
+["nombre","movil","email","direccion","localidad"].forEach(id=>$(id).addEventListener("input",()=>setErr(id,"")));
+function notaFianza(){const c=document.querySelector('input[name="cuando"]:checked'),n=$("fianzaNota"),f=c?+c.dataset.fianza:0;
+  n.hidden=!c;
+  n.innerHTML=!c?"":f?`<b>Fianza de reserva: ${f} €</b><br>Como la obra empieza ${c.value==="En un mes"?"dentro de un mes":"dentro de 2 o 3 meses"}, cuando aceptes el presupuesto y lleguemos a un acuerdo se pide una fianza de ${f} € para reservar la fecha y el equipo. Las obras urgentes (1 o 2 semanas) no llevan fianza.`
+    :`<b>Obra urgente: sin fianza</b><br>Como quieres empezar ${c.value==="En una semana"?"en una semana":"en dos semanas"}, no se pide fianza. Te llamamos lo antes posible para organizar la visita y darte el presupuesto.`;}
+document.querySelectorAll('input[name="cuando"]').forEach(r=>r.addEventListener("change",notaFianza));notaFianza();
+let pendiente=null, enviada="";
+$("enviar").onclick = async ()=>{
+  if(!pendiente) return;
+  const b=$("enviar"), m=$("envioMsg");
+  b.disabled=true; b.textContent="Enviando…"; m.style.color=""; m.textContent="";
+  try{
+    const r=await fetch("https://chuyrqtuzdqodwspcwkf.supabase.co/rest/v1/solicitudes",{method:"POST",
+      headers:{apikey:"sb_publishable_o97egFEojWPujeYkmuGyJg_BqEkGtGJ","Content-Type":"application/json",Prefer:"return=minimal"},
+      body:JSON.stringify(pendiente)});
+    if(!r.ok) throw 0;
+    enviada=JSON.stringify(pendiente); pendiente=null;
+    b.textContent="Solicitud enviada ✓"; m.style.color="#5ee29a";
+    m.textContent="¡Recibido! Tu solicitud ya está con nuestro equipo. Te llamaremos lo antes posible.";
+  }catch(_){
+    b.disabled=false; b.textContent="Enviar solicitud"; m.style.color="var(--err)";
+    m.textContent="No se ha podido enviar. Inténtalo de nuevo o mándanosla por WhatsApp.";
+  }
+};
+$("copy").onclick = async ()=>{
+  const t=$("copy").dataset.text||"";
+  try{ await navigator.clipboard.writeText(t); $("copy").textContent="Copiado ✓"; }
+  catch(_){ const r=document.createRange(); r.selectNodeContents($("msg")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); $("copy").textContent="Texto seleccionado"; }
+  setTimeout(()=>$("copy").textContent="Copiar texto",2200);
+};
+
+renderGrid(); renderSel();
+})();
+</script>
+<script>
+(function(){
+const SB="https://chuyrqtuzdqodwspcwkf.supabase.co/rest/v1/opiniones";
+const KEY="sb_publishable_o97egFEojWPujeYkmuGyJg_BqEkGtGJ";
+const H={apikey:KEY,"Content-Type":"application/json"};
+const VENTAJAS=[
+ ["Hasta 3 presupuestos gratis","Compara precios sin pagar nada."],
+ ["Empresas y autónomos verificados","Solo profesionales comprobados."],
+ ["Respuesta en menos de 24 h","Te contactamos rápido."],
+ ["Sin compromiso","Eliges tú, o no eliges ninguno."],
+ ["Sevilla y alrededores","Dos Hermanas, Aljarafe, Alcalá y más."],
+ ["Atención por WhatsApp","Chatea con nosotros cuando quieras."]
+];
+const css=`
+.op{padding-block:24px 56px;margin-top:0;position:relative;z-index:1}
+.op h2{font-size:clamp(22px,3vw,28px);margin-bottom:6px}
+.op .sub{color:var(--muted);margin:0 0 18px}
+.cinta{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.pista{display:flex;gap:16px;width:max-content;animation:cinta var(--dur,60s) linear infinite}
+.cinta:hover .pista{animation-play-state:paused}
+@keyframes cinta{to{transform:translateX(-50%)}}
+.tarjeta{width:300px;flex:none;background:rgba(10,18,34,.72);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;backdrop-filter:blur(4px)}
+.tarjeta .est{color:var(--gold);letter-spacing:2px;font-size:15px}
+.tarjeta p{margin:0;font-size:15px;line-height:1.45;color:var(--ink)}
+.tarjeta .quien{margin-top:auto;font-size:13.5px;color:var(--muted)}
+.tarjeta .quien b{color:var(--ink)}
+.tarjeta.ventaja b{font-family:var(--display);font-size:17px;color:var(--gold)}
+.op-acc{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.op form{margin-top:18px;max-width:640px;display:grid;gap:12px}
+.op form[hidden]{display:none}
+.op .fila{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.op .fila{grid-template-columns:1fr}}
+.estrellas{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:4px}
+.estrellas input{position:absolute;opacity:0;width:1px;height:1px}
+.estrellas label{font-size:30px;line-height:1;color:rgba(255,255,255,.25);cursor:pointer;margin:0}
+.estrellas input:checked~label,.estrellas label:hover,.estrellas label:hover~label{color:var(--gold)}
+.estrellas input:focus-visible+label{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+.op .aviso{font-size:14.5px;margin:0}
+.op .aviso.ok{color:#5ee29a}.op .aviso.mal{color:var(--err)}
+@media (prefers-reduced-motion: reduce){.pista{animation:none}.cinta{overflow-x:auto;-webkit-mask-image:none;mask-image:none}}
+`;
+const st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
+
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const sec=document.createElement("section");
+sec.className="op";sec.id="opiniones";
+sec.innerHTML=`<h2>Lo que dicen nuestros clientes</h2>
+<p class="sub" id="op-sub">¿Ya hemos trabajado para ti? Cuéntanos qué tal fue.</p>
+<div class="cinta" aria-label="Opiniones de clientes"><div class="pista" id="op-pista"></div></div>
+<div class="op-acc"><button type="button" class="btn primary" id="op-abrir">Deja tu opinión</button><span class="muted" id="op-cuenta"></span></div>
+<form id="op-form" hidden novalidate>
+ <div class="fila">
+  <div><label for="op-nombre">Tu nombre</label><input id="op-nombre" maxlength="60" autocomplete="given-name" placeholder="Ej. Carmen"></div>
+  <div><label for="op-loc">Localidad <em>(opcional)</em></label><select id="op-loc"><option value="">Elige tu pueblo</option>${(window.PUEBLOS_SEV||[]).map(p=>`<option>${p}</option>`).join("")}</select></div>
+ </div>
+ <div><label>Tu valoración</label><div class="estrellas" role="radiogroup" aria-label="Estrellas">
+  <input type="radio" name="op-est" id="e5" value="5"><label for="e5" title="5 estrellas">★</label>
+  <input type="radio" name="op-est" id="e4" value="4"><label for="e4" title="4 estrellas">★</label>
+  <input type="radio" name="op-est" id="e3" value="3"><label for="e3" title="3 estrellas">★</label>
+  <input type="radio" name="op-est" id="e2" value="2"><label for="e2" title="2 estrellas">★</label>
+  <input type="radio" name="op-est" id="e1" value="1"><label for="e1" title="1 estrella">★</label>
+ </div></div>
+ <div><label for="op-txt">Tu opinión</label><textarea id="op-txt" maxlength="600" placeholder="¿Qué trabajo te hicieron y qué tal fue?"></textarea></div>
+ <div class="op-acc" style="margin-top:0"><button type="submit" class="btn primary" id="op-enviar">Enviar opinión</button><button type="button" class="btn ghost" id="op-cerrar">Cancelar</button></div>
+ <p class="aviso" id="op-aviso" role="status"></p>
+</form>`;
+const main=document.querySelector("main.wrap")||document.body;
+main.appendChild(sec);
+
+const pista=sec.querySelector("#op-pista");
+function pintar(items,esVentaja){
+  const html=items.map(o=>esVentaja
+    ?`<div class="tarjeta ventaja"><b>${esc(o[0])}</b><p>${esc(o[1])}</p></div>`
+    :`<div class="tarjeta rev"><div class="quien"><b>${esc(o.nombre)}</b><span class="okv" aria-label="Cliente verificado">✓</span>${o.localidad?`<span class="loc">${esc(o.localidad)}</span>`:""}</div><p>${esc(o.comentario)}</p><div class="est" aria-label="${o.estrellas} de 5 estrellas">${"★".repeat(o.estrellas)}${"☆".repeat(5-o.estrellas)}</div></div>`).join("");
+  pista.innerHTML=html+html.replace(/class="tarjeta/g,'aria-hidden="true" class="tarjeta');
+  pista.style.setProperty("--dur",Math.max(30,items.length*9)+"s");
+}
+pintar(VENTAJAS,true);
+fetch(SB+"?select=nombre,localidad,estrellas,comentario&order=created_at.desc&limit=60",{headers:H})
+ .then(r=>r.ok?r.json():[])
+ .then(d=>{ if(Array.isArray(d)&&d.length){pintar(d.length<4?d.concat(d):d,false);sec.querySelector("#op-sub").textContent="Opiniones reales de clientes. Cada una la revisamos antes de publicarla.";
+   const media=(d.reduce((a,o)=>a+o.estrellas,0)/d.length).toFixed(1).replace(".",",");
+   sec.querySelector("#op-cuenta").textContent=`${d.length} ${d.length>1?"opiniones":"opinión"} · ${media} de 5 ★`; } })
+ .catch(()=>{});
+
+const f=sec.querySelector("#op-form"),av=sec.querySelector("#op-aviso");
+sec.querySelector("#op-abrir").onclick=()=>{f.hidden=false;sec.querySelector("#op-abrir").hidden=true;sec.querySelector("#op-nombre").focus();};
+sec.querySelector("#op-cerrar").onclick=()=>{f.hidden=true;sec.querySelector("#op-abrir").hidden=false;};
+f.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const nombre=sec.querySelector("#op-nombre").value.trim(),localidad=sec.querySelector("#op-loc").value.trim();
+  const est=+((f.querySelector('input[name="op-est"]:checked')||{}).value||0),txt=sec.querySelector("#op-txt").value.trim();
+  av.className="aviso mal";
+  if(nombre.length<2){av.textContent="Escribe tu nombre.";return;}
+  if(!est){av.textContent="Elige de 1 a 5 estrellas.";return;}
+  if(txt.length<10){av.textContent="Cuéntanos un poco más (mínimo 10 letras).";return;}
+  const b=sec.querySelector("#op-enviar");b.disabled=true;av.className="aviso";av.textContent="Enviando…";
+  try{
+    const r=await fetch(SB,{method:"POST",headers:{...H,Prefer:"return=minimal"},body:JSON.stringify({nombre,localidad:localidad||null,estrellas:est,comentario:txt})});
+    if(!r.ok)throw 0;
+    f.reset();av.className="aviso ok";av.textContent="¡Gracias! Tu opinión se publicará en cuanto la revisemos.";
+  }catch(_){av.className="aviso mal";av.textContent="No se ha podido enviar. Inténtalo de nuevo en un momento.";}
+  b.disabled=false;
+});
+})();
+
+/* resumen y "cómo funciona" al final, oculto hasta que el cliente lo abra */
+(function(){
+  const aside=document.querySelector("aside.panel");if(!aside)return;
+  const st2=document.createElement("style");
+  st2.textContent=".info{padding-block:0 48px}.info summary{list-style:none;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:1.5px solid var(--gold);color:var(--ink);border-radius:999px;padding:10px 18px;font-weight:700}.info summary::-webkit-details-marker{display:none}.info summary::after{content:\"▾\";color:var(--gold);transition:transform .2s}.info[open] summary::after{transform:rotate(180deg)}.info .cuerpo{margin-top:18px;max-width:640px;text-shadow:0 1px 3px rgba(0,0,0,.8)}.info .cuerpo h3{font-size:18px;margin-bottom:10px}";
+  document.head.appendChild(st2);
+  const d=document.createElement("details");d.className="info";d.id="info";
+  const s=document.createElement("summary");s.textContent="Tu solicitud, cómo funciona y atención por WhatsApp";
+  const c=document.createElement("div");c.className="cuerpo";
+  while(aside.firstChild)c.appendChild(aside.firstChild);
+  d.append(s,c);
+  (document.querySelector("main.wrap")||document.body).appendChild(d);
+  aside.remove();
+})();
+
+(function(){
+  document.querySelectorAll(".legal-links a[data-legal]").forEach(a=>{
+    a.addEventListener("click", e=>{
+      e.preventDefault();
+      const det = document.getElementById(a.dataset.legal);
+      if(!det) return;
+      const abrir = !det.open;
+      document.querySelectorAll("details.legal").forEach(x=>x.open=false);
+      det.open = abrir;
+      if(!abrir) return;
+      det.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth", block:"start"});
+    });
+  });
+})();
+</script>
+
+<script src="fondo.js"></script>
+<script src="precios.js" defer></script>
+</body>
+</html>
