@@ -25,7 +25,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.005em;color:v
 .brand b{color:var(--oliva)}
 .badge{border-color:var(--oliva)}
 .badge svg{stroke:var(--oliva)}
-.top small{color:var(--muted)}
+.top small{color:var(--muted);font-weight:700}
 .top .tools input{background-color:#fff!important;border:1px solid var(--line)!important;color:var(--ink)}
 .top .tools input:focus{border-color:var(--oliva)!important;box-shadow:0 0 0 3px rgba(107,118,81,.18)!important}
 .top .chip{background:transparent;border:1px solid var(--line);color:var(--ink);font-weight:600}
