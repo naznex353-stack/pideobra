@@ -1,8 +1,8 @@
 /* doynfbhywegkxyhgtees
 sb_publishable_A0nss09RkHXJnLDgXTYTeQ__z6BGcB4: se gestionan desde el panel (tabla "ofertas" en Supabase) */
 (function(){
-const SB="https://chuyrqtuzdqodwspcwkf.supabase.co/rest/v1/ofertas";
-const KEY="sb_publishable_o97egFEojWPujeYkmuGyJg_BqEkGtGJ";
+const SB="https://doynfbhywegkxyhgtees.supabase.co/rest/v1/ofertas";
+const KEY="sb_publishable_A0nss09RkHXJnLDgXTYTeQ__z6BGcB4";
 const css=`
 .ofertas{padding-block:56px 20px;position:relative;z-index:1;border-top:1px solid var(--line)}
 .of-eyebrow{font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--oliva,#6b7651);margin:0 0 6px}
