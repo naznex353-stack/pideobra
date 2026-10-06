@@ -713,7 +713,7 @@ $("enviar").onclick = async ()=>{
   const b=$("enviar"), m=$("envioMsg");
   b.disabled=true; b.textContent="Enviando…"; m.style.color=""; m.textContent="";
   try{
-    const r=await fetch("https://chuyrqtuzdqodwspcwkf.supabase.co/rest/v1/solicitudes",{method:"POST",
+    const r=await fetch("https://sb_publishable_A0nss09RkHXJnLDgXTYTeQ__z6BGcB4.supabase.co/rest/v1/solicitudes",{method:"POST",
       headers:{apikey:"sb_publishable_o97egFEojWPujeYkmuGyJg_BqEkGtGJ","Content-Type":"application/json",Prefer:"return=minimal"},
       body:JSON.stringify(pendiente)});
     if(!r.ok) throw 0;
@@ -737,7 +737,7 @@ renderGrid(); renderSel();
 </script>
 <script>
 (function(){
-const SB="https://chuyrqtuzdqodwspcwkf.supabase.co/rest/v1/opiniones";
+const SB="https://sb_publishable_A0nss09RkHXJnLDgXTYTeQ__z6BGcB4.supabase.co/rest/v1/opiniones";
 const KEY="sb_publishable_o97egFEojWPujeYkmuGyJg_BqEkGtGJ";
 const H={apikey:KEY,"Content-Type":"application/json"};
 const VENTAJAS=[
