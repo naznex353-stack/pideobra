@@ -1,4 +1,5 @@
-/* Ofertas destacadas: se gestionan desde el panel (tabla "ofertas" en Supabase) */
+/* doynfbhywegkxyhgtees
+sb_publishable_A0nss09RkHXJnLDgXTYTeQ__z6BGcB4: se gestionan desde el panel (tabla "ofertas" en Supabase) */
 (function(){
 const SB="https://chuyrqtuzdqodwspcwkf.supabase.co/rest/v1/ofertas";
 const KEY="sb_publishable_o97egFEojWPujeYkmuGyJg_BqEkGtGJ";
