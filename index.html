@@ -713,8 +713,8 @@ $("enviar").onclick = async ()=>{
   const b=$("enviar"), m=$("envioMsg");
   b.disabled=true; b.textContent="Enviando…"; m.style.color=""; m.textContent="";
   try{
-    const r=await fetch("https://sb_publishable_A0nss09RkHXJnLDgXTYTeQ__z6BGcB4.supabase.co/rest/v1/solicitudes",{method:"POST",
-      headers:{apikey:"sb_publishable_o97egFEojWPujeYkmuGyJg_BqEkGtGJ","Content-Type":"application/json",Prefer:"return=minimal"},
+    const r=await fetch("https://doynfbhywegkxyhgtees.supabase.co/rest/v1/solicitudes",{method:"POST",
+      headers:{apikey:"sb_publishable_A0nss09RkHXJnLDgXTYTeQ__z6BGcB4","Content-Type":"application/json",Prefer:"return=minimal"},
       body:JSON.stringify(pendiente)});
     if(!r.ok) throw 0;
     enviada=JSON.stringify(pendiente); pendiente=null;
@@ -737,8 +737,8 @@ renderGrid(); renderSel();
 </script>
 <script>
 (function(){
-const SB="https://sb_publishable_A0nss09RkHXJnLDgXTYTeQ__z6BGcB4.supabase.co/rest/v1/opiniones";
-const KEY="sb_publishable_o97egFEojWPujeYkmuGyJg_BqEkGtGJ";
+const SB="https://doynfbhywegkxyhgtees.supabase.co/rest/v1/opiniones";
+const KEY="sb_publishable_A0nss09RkHXJnLDgXTYTeQ__z6BGcB4";
 const H={apikey:KEY,"Content-Type":"application/json"};
 const VENTAJAS=[
  ["Hasta 3 presupuestos gratis","Compara precios sin pagar nada."],
